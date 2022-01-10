@@ -1,2 +1,2 @@
 Fullstack handson activities
-Name: 
+Name: Seema Patil
