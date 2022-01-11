@@ -32,7 +32,7 @@ public class Exercise_3 {
 		student3.setFeePerMonth(14000.0F);
 		student3.setEligibleForScholarship(false);
 		
-		getStudentNameWithHighestMarks(student1, student2, student3);
+		System.out.println(getStudentNameWithHighestMarks(student1, student2, student3));
 		
 		lowestFeePayingStudent(student1, student2, student3);
 		
@@ -71,6 +71,7 @@ public class Exercise_3 {
 			System.out.println("Student Scholarship details : "
 					+ (student.isEligibleForScholarship() == true ? "Scholarship available"
 							: "Scholarship not available"));
+			System.out.println("-------------------------------------------------------------------");
 		}
 	}
 }
