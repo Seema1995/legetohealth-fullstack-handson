@@ -11,7 +11,7 @@ public class Exercise_3 {
 		student1.setMarks3(65);
 		student1.setFeePerMonth(12000.0F);
 		student1.setEligibleForScholarship(true);
-		
+
 		StudentClass student2 = new StudentClass();
 		student2.setStudentId(104);
 		student2.setStudentName("Bob");
@@ -21,7 +21,7 @@ public class Exercise_3 {
 		student2.setMarks3(85);
 		student2.setFeePerMonth(2000.0F);
 		student2.setEligibleForScholarship(true);
-		
+
 		StudentClass student3 = new StudentClass();
 		student3.setStudentId(194);
 		student3.setStudentName("Charlie");
@@ -31,18 +31,18 @@ public class Exercise_3 {
 		student3.setMarks3(85);
 		student3.setFeePerMonth(14000.0F);
 		student3.setEligibleForScholarship(false);
-		
+
 		System.out.println(getStudentNameWithHighestMarks(student1, student2, student3));
-		
+
 		lowestFeePayingStudent(student1, student2, student3);
-		
-		StudentClass []students = {student1,student2,student3};
+
+		StudentClass[] students = { student1, student2, student3 };
 		displayStudentInfo(students);
-		
+
 	}
-	
+
 	public static String getStudentNameWithHighestMarks(StudentClass s1, StudentClass s2, StudentClass s3) {
-		
+
 		if (s1.getTotalMarks() > s2.getTotalMarks() && s1.getTotalMarks() > s3.getTotalMarks())
 			return "Student with Highest Total Marks : " + s1.getStudentName();
 		else if (s2.getTotalMarks() > s1.getTotalMarks() && s2.getTotalMarks() > s3.getTotalMarks())
@@ -50,7 +50,7 @@ public class Exercise_3 {
 		else
 			return "Student with Highest Total Marks : " + s3.getStudentName();
 	}
-	
+
 	public static void lowestFeePayingStudent(StudentClass s1, StudentClass s2, StudentClass s3) {
 		System.out.println("-------------------------------------------------------------------");
 		if (s1.getAnnualFee() < s2.getAnnualFee() && s1.getAnnualFee() < s3.getAnnualFee())
@@ -60,10 +60,10 @@ public class Exercise_3 {
 		else
 			System.out.println("Student " + s3.getStudentName() + " pays least annual fee of Rs. " + s3.getAnnualFee());
 	}
-	
-	public static void displayStudentInfo(StudentClass []s) {
+
+	public static void displayStudentInfo(StudentClass[] s) {
 		System.out.println("-------------------------------------------------------------------");
-		for(StudentClass student:s) {
+		for (StudentClass student : s) {
 			System.out.println("Student Name : " + student.getStudentName());
 			System.out.println("Student Total Marks : " + student.getTotalMarks());
 			System.out.println("Student Average Marks : " + student.getAverage());

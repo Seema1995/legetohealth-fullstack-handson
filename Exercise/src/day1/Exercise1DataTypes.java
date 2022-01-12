@@ -1,6 +1,6 @@
 package day1;
 
-public class Exercise1_DataTypes {
+public class Exercise1DataTypes {
 	public static void main(String[] args) {
 		byte byteValue = 127;
 		int intValue = 122;
