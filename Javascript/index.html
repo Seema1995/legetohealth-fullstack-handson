@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="header1">Welcome to JS</h1>
+    <img src="images\smiley.jpg" id="mainimage" width="300" height="300"/>
+    <div onclick='handleClick(event)'>
+        <img src="images\smiley2.jpg" width="300" height="300"/>
+    </div>
+    <script type='text/javascript'>
+        var counter =0;
+        function handleClick(event){
+            if(counter>2){
+                counter=0;
+            }
+            var colors = ['blue','purple','red'];
+            var x = document.getElementById('header1');
+            x.style.color = colors[counter++];
+            var ele = document.getElementById('mainimage');
+            if(event.target.tagName == 'IMG'){
+                ele.src = event.target.src 
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Understanding ES features - class, constructor, extends , super</h1>
+    <script type="text/javascript">
+        //class
+        class Employee{
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+            }
+            display() {
+                document.write(`<p>Name : ${this.name} , Age : ${this.age}</p>`);
+            }            
+        }
+
+        //extends keyword usage
+        class Manager extends Employee{
+            static orgName = "Legato Health"
+            constructor(name, age, empReporting){
+                super(name,age)   //super constructor call
+                this.empReporting = empReporting
+            }
+
+            //overriding super class method - non-static method
+            display(){
+                document.write(`<p>Name : ${this.name} , Age : ${this.age} , Employees Reporting : ${this.empReporting}</p>`);
+            }
+            
+            //static methods cannot handle non-static variables. Static vars must be accessed using this/classname
+            static displayCompany(){
+                document.write(`<p>Organization name : ${Manager.orgName}</p>`);
+            }
+        }
+         var emp = new Employee("Sam",76);
+         emp.display();
+
+         var manager = new Manager("Katy",40, 12)
+         manager.display();
+         Manager.displayCompany()
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //trailing commas in arrays at the last are allowed after ES6
+        var items = ["Apple","Orange","Mango","Dragon Fruit",]
+
+        //map is an built in function in js that takes callback funcs as an arg
+        var otherItems = items.map(function(item, index){
+            return item+" fruit";
+        } );
+
+        document.write(`<p>Items : ${items}</p>`)
+        document.write(`<p>Other Items : ${otherItems}</p>`)
+        var arrowFunctionsItems = items.map((item,index)=> item+" fruit")
+        document.write(`<p>Arrow function Items : ${arrowFunctionsItems}<br><br></p>`)
+        
+        //exponential operations can now be performed using **
+        document.write(`2^5 = `+2**5);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    //Default parameters
+        function mul(x = 2, y = 3){
+            document.write(`<p> Mul of ${x} and ${y} is :  </p>`);
+            document.write(x*y);
+        }
+        mul()
+        mul(4,7)
+        mul(7)
+
+        function normalMethod(m,n){
+            document.write(`normal method : ${m} and ${n} <br><br>`);
+        }
+
+        function restMethod(m,...n){
+            document.write(`Rest method : ${m} and ${n}<br><br>`);
+        }
+
+        function spreadMethod(m,n,...o){
+            document.write(`Spread method : ${m} and ${n}<br><br>`);
+        }
+
+        fruits = ["Apple","Orange","Mango","Dragon Fruit",]
+        normalMethod( "Apple","Orange","Mango","Dragon Fruit")
+        normalMethod("Apple","Banana")
+        restMethod("Apple","Orange","Mango","Dragon Fruit")
+        restMethod("Mango","Dragon Fruit")
+        spreadMethod("Apple","Orange","Mango","Dragon Fruit")
+    </script>
+</body>
+</html>
