@@ -1,0 +1,19 @@
+<div>
+    <p>Name : {{name | uppercase}}</p>
+    <p>Salary : {{salary | currency : "INR"}}</p>
+    <p>Salary : {{salary | currency : "JPY"}}</p>
+    <p>Salary : {{salary | currency : "USD"}}</p>
+    <p>DOB : {{dob | date}}</p>
+    <p>DOB : {{dob | date : "dd-MM-yyyy"}}</p>
+    <p>DOB : {{dob | date : "dd-MMM-yyyy"}}</p>
+
+    <div>
+        <p *ngIf ="status">Status : {{status}}</p>
+        <div *ngFor = "let f of fruits">{{f}}</div>
+
+            <ol>
+                <li *ngFor = "let f of fruits">{{f}}</li>
+            </ol>
+        
+    </div>
+</div>

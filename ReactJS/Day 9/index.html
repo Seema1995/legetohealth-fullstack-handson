@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- This is a root node which will have all componenets including root component -->
+    <div id="root"></div>
+
+    <!-- CDN Links of React and ReactDOM libraries -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script type="text/javascript">
+
+        // Creating components of HTML to be rendered to root node
+        let heading  = React.createElement('h1',{},"Welcome to React heading")
+        let sections = React.createElement('h2',{},"Learning React");
+
+        // Adding sub-component to a main component
+        let content = React.createElement('div',{},[heading,sections]);
+
+        // Finally adding the main components to root component
+        ReactDOM.render(content,document.getElementById("root"))
+
+    </script>
+</body>
+</html>

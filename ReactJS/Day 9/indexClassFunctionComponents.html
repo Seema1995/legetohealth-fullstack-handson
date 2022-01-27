@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- This is a root node which will have all the components including root component -->
+    <div id="root"></div>
+
+    <!-- CDN Links of React and ReactDOM library -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        function Hello(){
+            let componentName = "Hello Component";
+                return (
+                    <div>
+                        <h3>This is {componentName} </h3>
+                        <Hello />
+                    </div>
+                )
+        }
+
+        class Greetings extends React.Component{
+            componentName = "Greeting component"
+            //Here this keyword needs to be used since it is class component
+            render(){
+                return (
+                    <div>
+                        <h2>This is {this.componentName} </h2>
+                        <Hello />
+                    </div>
+                )
+            }
+        }
+
+        class App extends React.Component{
+            //render() function is called when DOM is loaded
+            render(){
+                return (
+                    <div>
+                        <h2>This is App component</h2>
+                        <Greetings />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App />,document.getElementById("root"));
+    </script>
+</body>
+</html>

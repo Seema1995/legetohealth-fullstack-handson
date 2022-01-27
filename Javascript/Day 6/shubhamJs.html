@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Constructor Example</h1>
+    <hr/>
+    <script type= 'text/javascript'>
+    class Employee{
+        constructor(name,id){
+            console.log("Inside constructor")
+            this.name=name;
+            this.id=id;
+        }
+        display(){
+            console.log("Name: "+this.name)
+            document.write('<p>Name= '+ this.name +' with Id= ' + this.id +'</p>');
+        }
+    }
+    var e= new Employee('Shubham',99);
+    e.display();
+    </script>
+</body>
+</html>

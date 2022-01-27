@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Welcome to Socket programming using Node JS</h1>
+    <h2>This is cliet socket implementation</h2>
+    <div>
+        <input type='text' id='clientInput'>
+        <button onclick="sendMessage()">Send</button> 
+    </div>
+    
+    <div id="msg"></div>
+
+    <script type="text/javascript" src = "/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        //establishing connection 
+        let socket = io();
+
+        //receiving messages from server
+        socket.on("messageKey",(message) => {
+            document.getElementById('msg').innerHTML += '<p>'+message+'</p>';
+        });
+
+        function sendMessage(){
+            //console.log("Hi")
+            let val = document.getElementById("clientInput").value;
+            socket.emit("clientMessage",val)
+        }
+        
+    </script>
+
+</body>
+</html>
