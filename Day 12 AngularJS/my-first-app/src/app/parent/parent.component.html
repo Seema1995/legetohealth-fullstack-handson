@@ -1,0 +1,14 @@
+<div>
+    <p>
+        Parent Component : {{firstname}}
+    </p>
+    <div>
+        <app-child [username] = 'firstname'></app-child>
+    </div>
+    <h2>Iterating the parent array using child</h2>
+    <div *ngFor = "let u of users">
+        <app-child [username] = "u.name"></app-child>
+
+    
+    </div>
+</div>

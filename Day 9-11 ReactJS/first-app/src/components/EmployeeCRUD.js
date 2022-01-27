@@ -9,10 +9,15 @@ export class EmployeeItems extends React.Component{
 
     handleRefresh = (event) => {
         console.log("Inside handleRefresh")
-        let url = "http://localhost:9090/employee"
-        axios.get("http://localhost:9092/employee")
-        .then((response)=> this.setState({employee : response.data}))
+        let url = "http://localhost:9092/employee"
+        let url2 = "http://localhost:9092/employee/2"
+        axios.get(url2)
+        .then((response)=> { console.log(response.data);this.setState({employee : response.data});})
         .catch((err)=>console.log(err))
+
+        // axios.get(url2)
+        // .then((response) => this.setState({employee : response.data}))
+        // .catch((err) => console.log(err))
         
     }
 
@@ -39,5 +44,9 @@ export class EmployeeItems extends React.Component{
             </div>
         )
     }
+
+}
+
+export class EmployeeUpdate extends React.Component{
 
 }

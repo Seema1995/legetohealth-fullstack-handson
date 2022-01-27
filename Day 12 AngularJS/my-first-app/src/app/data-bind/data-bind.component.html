@@ -1,0 +1,17 @@
+<div>
+    <h2>Welcome to Data Binding - Event Binding</h2>
+    <p>Username : {{username}} </p>
+    <input type ="text" autocomplete="off" #un/>
+
+    <div [hidden]="toggleButton">Hello There !!</div>
+    <p> Toggle Button : {{toggleButton}}</p>
+    <button (click) = "handleClick(un.value)">Button</button>
+    <button [disabled]="toggleButton"> Toggle Button</button>
+
+    <h2>Two way data binding</h2>
+    <input type="text" name="msg" [(ngModel)] ="message" />
+    <input type="text" name="msg2" [(ngModel)] ="message" />
+    <div>
+        Message : {{message}}
+    </div>
+</div>

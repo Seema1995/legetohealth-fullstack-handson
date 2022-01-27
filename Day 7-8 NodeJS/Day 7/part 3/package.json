@@ -2,10 +2,10 @@
   "name": "part-3",
   "version": "1.0.0",
   "description": "",
-  "main": "employeeMongoDB.js",
+  "main": "employeeMongoDBAxios.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon employeeMongoDB.js"
+    "start": "nodemon employeeMongoDBAxios.js"
   },
   "keywords": [],
   "author": "",
