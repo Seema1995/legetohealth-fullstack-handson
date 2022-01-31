@@ -1,0 +1,22 @@
+<div class = "container-fluid">
+    <form [formGroup]="employee" (ngSubmit)="handleClick()">
+        <div>
+            <input type="submit" value="Get Employee Details" class ="btn btn-primary"/>
+        </div>
+        <table class ="table table-striped" *ngIf ="emp">
+            <thead>
+                <tr>
+                    <th>ID</th><th>Name</th><th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of emp">
+                    <td>{{e._id}}</td><td>{{e.name}}</td><td>{{e.salary}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf ="err" class ="text-danger">
+            {{err}}
+        </div>
+    </form>
+</div>

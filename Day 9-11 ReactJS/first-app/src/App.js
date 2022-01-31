@@ -5,8 +5,7 @@ import Greetings,{Hello} from './components/Greetings'
 import Button,{Simple, Input} from './components/Button'
 import Counter from './components/Counter'
 import Person,{DisplayInfo} from './components/Person'
-import {EmployeeItems, EmployeeUpdate} from './components/EmployeeCRUD'
-import {EmployeeStoreForm} from './components/EmployeeStoreForm'
+import {EmployeeItems, EmployeeUpdate,EmployeeById, EmployeeStoreForm} from './components/EmployeeCRUD'
 
 function App(){
   // let message = "Hi, Hope you are having a good day."
@@ -83,6 +82,7 @@ function App(){
             <Route path = '/' element = {<EmployeeItems />} />
             <Route path = '/store' element = {<EmployeeStoreForm />} />
             <Route path = '/fetchAll' element = {<EmployeeItems />} />
+            <Route path = '/fetchById' element = {<EmployeeById />} />
             <Route path = '/update' element = {<EmployeeUpdate />} />
           </Routes>
         </div>
@@ -95,7 +95,8 @@ function App(){
 function Navigation(){
   return (
     <div className="alert alert-secondary">
-      <Link to = './store'>Store Employee</Link> |
+      <Link to = './store'>Store Employee</Link>|
+      <Link to = './fetchById'>Search By ID</Link>  |
       <Link to = './fetchAll'>Fetch All Employees</Link> |
       <Link to = './update'>Update Employee</Link>
     </div>

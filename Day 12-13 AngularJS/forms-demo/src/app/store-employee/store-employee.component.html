@@ -1,0 +1,22 @@
+<div class ="container-fluid">
+    <form [formGroup] = "employee" (ngSubmit) = "handleClick()">
+        <div class = "row">
+           Enter ID :  <input  type="number" formControlName = "id"/>
+        </div>
+        <div class = "row">
+           Enter Name : <input  type="text" formControlName = "name"/>
+        </div>
+        <div class = "row">
+           Enter Salary : <input  type="number" formControlName = "salary"/>
+        </div>
+        <div class ="row">
+            <input type= "submit" value="Submit" class = "btn btn-primary" />
+        </div>
+    </form>
+    <div *ngIf ="success" class="text-success">
+         {{success}}
+    </div>
+    <div *ngIf ="err" class ="text-danger">
+        {{err}}
+    </div>
+</div>

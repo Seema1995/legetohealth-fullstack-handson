@@ -18,5 +18,9 @@ export class ParentComponent implements OnInit {
           {name : "Samuel"},
           {name : "Erica"}
           ]
+  clicks :number =0
+  numberOfClicks(value :any){
+    this.clicks = this.clicks+value;
+  }
 
 }
