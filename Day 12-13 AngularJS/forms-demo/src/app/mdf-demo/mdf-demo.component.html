@@ -1,10 +1,10 @@
 <div>
     <h2> Welcome to MDF Forms</h2>
-    <form [formGroup]= "profile" (ngSubmit) ="handleSubmit()">
+    <form [formGroup]= "employee" (ngSubmit) ="handleSubmit()">
         <div class="row">
             <div class ="col-5">
                 Enter FirstName : <input type="text" formControlName = "firstname" autocomplete="off" class = "form-control"/>
-                <div class = "alert alert-danger" [hidden]="profile.controls['firstname'].valid || profile.controls['firstname'].pristine" >
+                <div class = "alert alert-danger" [hidden]="employee.controls['firstname'].valid || employee.controls['firstname'].pristine" >
                     Firstname must be min 5 letters
                 </div>
             </div>
@@ -12,7 +12,7 @@
         <div class="row">
             <div class ="col-5">
                 Enter LastName : <input type="text" formControlName = "lastname"  autocomplete="off" class = "form-control"/>
-                <div class = "alert alert-danger" [hidden]="profile.controls['lastname'].valid || profile.controls['lastname'].pristine" >
+                <div class = "alert alert-danger" [hidden]="employee.controls['lastname'].valid || employee.controls['lastname'].pristine" >
                     Lastname must be min 6 letters
                 </div>
             </div>
@@ -20,16 +20,17 @@
         <div class="row">
             <div class ="col-5">
                 <div>
-                    <input type="button" value="Submit" [disabled] = "profile.invalid" />
+                    <input type="submit" value="Submit" [disabled] = "employee.invalid" />
                 </div>
             </div>
         </div>
     </form>
 
     <div>
-        {{profile.value | json }}
-        <p>Form is valid : {{profile.valid}}</p>
-        <p>Firstname is valid : {{profile.controls['firstname'].valid}}</p>
-        <p>Lastname is valid : {{profile.controls['lastname'].valid}}</p>
+        {{employee.value | json }}
+        <p>Form is valid : {{employee.valid}}</p>
+        <p>Firstname is valid : {{employee.controls['firstname'].valid}}</p>
+        <p>Firstname : {{employee.controls['firstname'].value}}</p>
+        <p>Lastname is valid : {{employee.controls['lastname'].valid}}</p>
     </div>
 </div>

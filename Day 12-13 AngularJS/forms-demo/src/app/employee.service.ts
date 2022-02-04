@@ -37,4 +37,11 @@ export class EmployeeService {
     let url = `${this.baseURL}/employee`;  
     return this._client.put(url,employeeInfo)  //put- 2nd arg takes body
    }
+
+   //Delete Employee from DB
+   deleteEmployee(employeeInfo : any) : Observable<any> {
+    console.log("Inside store")
+   let url = `${this.baseURL}/employee`; 
+   return this._client.delete(url,employeeInfo);
+  }
 }

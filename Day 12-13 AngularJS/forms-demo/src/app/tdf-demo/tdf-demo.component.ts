@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tdf-demo',
@@ -7,12 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TdfDemoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router :Router, private _builder :FormBuilder) { }
 
   ngOnInit(): void {
   }
 
   handleSubmit(formData :any): void{
     console.log(formData)
+    if(formData.un =="Alexis"){
+      this._router.navigate(["success"])
+    }else{
+      this._router.navigate(["mdfDemo"])
+      formData.reset()
+    }
   }
 }

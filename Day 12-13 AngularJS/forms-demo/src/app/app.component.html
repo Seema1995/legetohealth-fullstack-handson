@@ -1,7 +1,8 @@
-<div class ="container-fluid justify-content-center d-flex flex-nowrap" >
+<div class ="container-fluid " >
+  <!-- justify-content-center d-flex flex-nowrap -->
   <!-- <app-tdf-demo></app-tdf-demo> -->
   <!-- <app-mdf-demo></app-mdf-demo> -->
-  <div class ="row">
+  <!-- <div class ="row">
     <div class = "col-8 border-right">
       <h2>Get Employee by ID</h2>
         <app-fetch-employee></app-fetch-employee>
@@ -28,5 +29,20 @@
       <app-update-employee></app-update-employee>
     </div>
 
+  </div> -->
+  <div class="text-center">
+    <h1>Employee Application</h1> <hr />
   </div>
+
+  <div>
+    <a routerLink="getAll" >Get Employees</a> | 
+    <a routerLink="getById" >Get Employee By ID</a> |
+    <a routerLink="store" >Store Employee</a> |
+    <a routerLink="update" >Update Employee</a> |
+    <a routerLink='delete'>Delete Employee</a> |
+    <a routerLink="tdfDemo">TDF</a> |
+    <a routerLink="mdfDemo">MDF</a> |
+    <a routerLink="success">Success</a>
+  </div>
+  <router-outlet></router-outlet>
 </div>

@@ -58,6 +58,7 @@ app.get("/employee",(request,response) => {
                 }else{
                     response.json(employeesArr)
                 }
+                client.close()
             })//forEach ends
         }//if ends
     })//client ends
@@ -65,7 +66,7 @@ app.get("/employee",(request,response) => {
 }) //get ends
 
 app.post("/employee",(request,response)=>{
-    console.log("hee Ho")
+    console.log("hee Ho post")
    // console.log(request.body)
 
     MongoClient.connect((url),(err,client) =>{
@@ -78,9 +79,14 @@ app.post("/employee",(request,response)=>{
             //     }).sort({"_id" : -1}).limit(1);
            // console.log(object)
             db.collection("employee").insertOne(request.body, (err, data) => {
-                if(err) return console.log(err);
+                if(err) {
+                    console.log(err);
+                    response.status(500).send("Server error")
+                }
+                console.log
+                response.send('saved to db: ' + data);
 
-                response.send(('saved to db: ' + data));
+                client.close()
             })
         }
     })
@@ -107,10 +113,13 @@ app.post("/employee",(request,response)=>{
                 // }
 
                 db.collection("employee").updateOne(jsData[0],jsData[1], (err, data) => {
-                    if(err) return console.log(err);
+                    if(err){console.log(err)} //response.status(500).send("server error");
     
+                    console.log(JSON.stringify(data))
+                    let info = JSON.stringify(data)
+                    response.status(200).json("Updated")
                     
-                    response.sendStatus(200);
+                    client.close()
                 })
                 
                 // console.log(request.body(0))
@@ -128,3 +137,34 @@ app.post("/employee",(request,response)=>{
         })
         // response.send("Success");
         }) //get() ends
+
+
+        app.delete("/employee",(request,response)=>{
+            //let empId = parseInt(request.params.id); //id set in url is in String format hence needs to be converted to int
+            console.log("Inside delete by id mongo")
+            //convert to MongoDB db -> MongoClient.connect(url,parser,callback)
+            MongoClient.connect(url,{useNewURLParser:true},(err,client) => {
+                if(!err){
+                    let db = client.db("myDb");
+                    let id =request.body
+                    let jsData = JSON.parse(JSON.stringify(id))
+                    console.log(id)
+                    //db.collectionName.find
+                    let doc = db.collection("employee").deleteOne(jsData,(err, data) => {
+                        if(err) {
+                         console.log(err);
+                        }
+        
+                        console.log(JSON.stringify(data))
+                        let info = JSON.stringify(data)
+                        response.status(200).json("Deleted");
+                        
+                    client.close()
+                    })
+                    
+                }//err ends
+                
+                //connect ends
+            }) //delete() ends
+        })
+    

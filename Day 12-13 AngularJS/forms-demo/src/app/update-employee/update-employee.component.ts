@@ -35,11 +35,11 @@ export class UpdateEmployeeComponent implements OnInit {
     let jsonObj = JSON.stringify(employeeData)
 
     let jsonToJS = JSON.parse(jsonObj)
-    this._service.updateSalary(employeeData).subscribe((response) => {
-                                                  console.log(response)
+    this._service.updateSalary(employeeData).subscribe(response => {
+                                                  console.log(typeof response)
                                                   this.success = response
                                                   console.log(this.success)
-    },(err) => {
+    },err => {
               console.log(err)
               this.err = err.error.error;
               //console.log(this.err)

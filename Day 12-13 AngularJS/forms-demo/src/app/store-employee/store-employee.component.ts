@@ -28,20 +28,21 @@ export class StoreEmployeeComponent implements OnInit {
     let myId = this.employee.controls['id'].value;
     let myName = this.employee.controls['name'].value;
     let mySalary = this.employee.controls['salary'].value;
-    employeeData = [{
-      id : myId,
-      name : myName,
-      salary : mySalary
-    }]
+    employeeData = {
+      "_id" : myId,
+      "name" : myName,
+      "salary" : mySalary
+    }
     let jsonObj = JSON.stringify(employeeData)
     console.log(jsonObj)
-    this._service.store(jsonObj).subscribe((response) => {
+    this._service.store(employeeData).subscribe((response) => {
                                                     console.log(response)
                                                     this.success = response
                                                   },(err) => {
                                                     console.log(err.error.error)
                                                     this.err = err.error.error
                                                   })
+                                                  this.employee.reset({})
   }
 
 }
