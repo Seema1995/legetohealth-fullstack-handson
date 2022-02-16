@@ -1,0 +1,27 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: second-client
+    
+# setting up actuator end point details to get status of circuit breaker - health, info, status
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+resilience4j:
+  circuitbreaker:
+    instances:
+      fetchFirstApp :
+        register-health-indicator: true
+        ring-buffer-size-in-closed-state: 6
+        ring-buffer-size-in-half-open-state: 3
+        wait-duration-in-open-state: 50s
+        failure-rate-threshold: 50

@@ -1,0 +1,4 @@
+# you can use encrypt.key to provide key for encryption and decryption
+
+#encrypt:
+#  key: my$key
